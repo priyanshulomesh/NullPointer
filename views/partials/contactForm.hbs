@@ -1,0 +1,18 @@
+<form id="contactUsSectionForm" class="container w-25" action="/process-contact-form" method="post">
+    <div class="mb-3">
+        <label for="contactInputEmail" class="form-label">Email address</label>
+        <input name="email" type="email" class="form-control" id="queryEmail" aria-describedby="emailHelp"
+            required>
+        <div class="valid-feedback">
+            Email ID valid
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        <textarea name="query" class="form-control" placeholder="" id="queryText" required></textarea>
+        <label for="contactQuery">Send your query here</label>
+    </div>
+    <div class="container text-center">
+
+        <button id="submitQueryBtn"type="submit" class="btn btn-primary" >Send</button>
+    </div>
+</form>

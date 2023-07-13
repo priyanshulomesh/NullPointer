@@ -1,0 +1,32 @@
+.slider-image{
+    max-height: 550px!important;
+    object-fit: cover;
+    filter:brightness(25%);
+}
+
+.service-icon
+{
+    font-size: 90px;
+    /* margin-bottom: auto; */
+}
+.card-body{
+    /* white-space: nowrap; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-text{
+    margin-bottom: auto;
+}
+.card-desc{
+    margin-bottom: auto;
+}
+.card-button{
+    margin-bottom: auto;
+}
+
+.card-row{
+    display:flex;
+    flex-direction: row;
+    max-width: auto;
+}

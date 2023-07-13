@@ -1,0 +1,30 @@
+<form id="registerForm" action="/register" method="post" onsubmit="return validate()">
+    <!-- Email input -->
+    <label for="usr">Name:</label>
+    <input name="name" type="text" class="form-control" id="usr">
+    <div class="form-outline mb-4">
+        <label class="form-label" for="registerEmail">Email address</label>
+        <input name="email" type="email" id="registerEmail" class="form-control" required>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input name="password" type="password" id="password" class="form-control" required>
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label" for="cnfrmpassword">Confirm Password</label>
+        <input type="password" id="cnfrmpassword" class="form-control" onkeyup="validatePassword()" required>
+    </div>
+    <p id="message" style="color:white"></p>
+
+    <!-- Submit button -->
+    <div class="text-center">
+        <button id="signup-btn" type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
+    </div>
+
+    <!-- Register buttons -->
+    <div class="text-center">
+        <p id="login-btn">Already a member? <a href="#">log in</a></p>
+    </div>
+</form>

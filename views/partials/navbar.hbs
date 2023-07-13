@@ -1,0 +1,48 @@
+<nav class="navbar navbar-dark navbar-expand-lg border-bottom py-3 bg-dark" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="{{data.brandIconUrl}}" alt="" width="35" height="35" style="border-radius:50%">
+      {{data.brandName}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {{#each data.links}}
+        <li class="nav-item">
+          <a class="nav-link active navButtons navBarButton" aria-current="page" href="{{this.url}}">{{this.label}}</a>
+        </li>
+        {{/each}}
+
+        {{#if isLogin}}
+
+          {{!-- logout dropdown --}}
+          <li id="dropdown-button" class="nav-item dropdown">
+          <a id="dropdown-button-toggle"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hi {{profileData.name}}
+          </a>
+          <ul id="loginDropdownMenu"class="dropdown-menu">
+            <li><a id="profile-btn" class="dropdown-item" href="/profile">Profile</a></li>
+            <form id="logout-btn"action="/logout" method="post">
+              <li><button type="submit" class="dropdown-item">Log Out</button></li>
+            </form>
+          </ul>
+        </li>
+      </li>
+        {{else}}
+          {{!-- login button --}}
+          <li class="nav-item">
+            <button type="button" id="loginBtn" class="nav-link active navButtons">Login</button>
+          </li>
+
+
+        {{/if}}
+
+
+      </ul>
+    </div>
+  </div>
+</nav>

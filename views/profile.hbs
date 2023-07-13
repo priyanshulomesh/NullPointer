@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    {{> navbar data=navDetails}}
+
+
+    <div class="container">
+        <h1 class="mt-3 text-center">Profile</h1>
+        <hr>
+        <div class="row">
+
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+                <h3>Personal info</h3>
+
+                <form class="form-horizontal" action="/profile" method="post" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label mt-3">Name:</label>
+                        <div class="col-lg-8">
+                            <input name="name" class="form-control" type="text" value="{{profileData.name}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label mt-3">Email:</label>
+                        <div class="col-lg-8">
+                            <input name="email" class="form-control" type="text" value="{{profileData.email}}" disabled
+                                readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label mt-3">Password:</label>
+                        <div class="col-md-8">
+                            <input name="password" class="form-control" id="password" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label mt-3">Confirm password:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="cnfrmpassword" type="password" onkeyup="validatePassword()">
+                        </div>
+                        <p id="message" style="color:white"></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label mt-3"></label>
+                        <div class="col-md-8">
+                            <input type="submit" class="btn btn-primary" value="Save Changes">
+                            <span></span>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#confirmPasswordModal">Delete Account</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+
+    {{!-- confirm password modal --}}
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="confirmPasswordModal" tabindex="-1" aria-labelledby="confirmPasswordModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="confirmPasswordModalLabel">Enter your password to confirm</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/deleteAccount" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label mt-3">Password:</label>
+                            <div class="col-md-8">
+                                <input name="deletePassword" class="form-control" id="deletePassword" type="password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     {{!-- contact-us section --}}
+
+  <div id="contact-us" class="mt-5" style="background-color:black;">
+    {{!-- <div class="container text-center"> --}}
+
+      <div class="text-center">
+
+        <a id="contactUsBtn" class="btn btn-primary mt-3 mb-3" data-bs-toggle="collapse" href="#collapseForm"
+          role="button" aria-expanded="false" aria-controls="collapseExample">
+          Contact Us
+        </a>
+
+      </div>
+
+      <div class="collapse mt-5 " id="collapseForm">
+        <div class="container card card-body text-light" style="background-color:black;">
+
+          {{> contactForm}}
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>

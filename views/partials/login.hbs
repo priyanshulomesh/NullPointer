@@ -1,0 +1,39 @@
+<form action="/login" method="post">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="loginEmail">Email address</label>
+        <input name ="email" type="email" id="loginEmail" class="form-control" required>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="loginPassword">Password</label>
+        <input name="password"type="password" id="loginPassword" class="form-control" required>
+    </div>
+
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="loginRemember" checked />
+                <label class="form-check-label" for="loginRemember"> Remember me </label>
+            </div>
+        </div>
+
+        <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Forgot password?</a>
+        </div>
+    </div>
+
+    <!-- Submit button -->
+    <div class="text-center">
+        <button id="loginSubmit" type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+    </div>
+
+    <!-- Register buttons -->
+    <div class="text-center">
+        <p id="register-btn">Not a member? <a href="#">Register</a></p>
+    </div>
+</form>
